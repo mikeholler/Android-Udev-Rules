@@ -7,13 +7,24 @@ if [ "$(id -u)" != $ROOT_UID ]; then
     exit 1
 fi
 
+echo "This is a modified shell-script from the one
+originally-published at github.com/apotheos/Android-Udev-Rules \n
+Warning! The customisation will attempt to create new group
+*plugdev* as root..."
 echo "Unplug all android devices, then hit ENTER."
 read IGNORE
 
 cp $ANDROID_RULES_FILE $UDEV_RULES_DIR
 
-chmod a+r $UDEV_RULES_DIR/$ANDROID_RULES_FILE
+#chmod a+r $UDEV_RULES_DIR/$ANDROID_RULES_FILE
+chmod 0644 $UDEV_RULES_DIR/$ANDROID_RULES_FILE -cR
 
-service udev restart > /dev/null
+groupadd plugdev
+
+# Uncomment the following line for machines with **SysV init system**
+#service udev restart > /dev/null
+
+# Reload *udev* service files on **systemd** machines
+systemctl restart systemd-udevd.service > /dev/null
 
 echo "UDEV rules installed. Restart adb and connect Android devices."
