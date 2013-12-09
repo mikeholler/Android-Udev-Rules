@@ -1,7 +1,7 @@
 Android-Udev-Rules
 ==================
 
-Develop with your Android devices on Ubuntu.
+Develop with your Android devices on Linux.
 
 *************************************************
 This is a fork of the original repo hosted at http://github.com/apotheos/Android-Udev-Rules
