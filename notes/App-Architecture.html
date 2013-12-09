@@ -1,0 +1,66 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN">
+<html>
+<head>
+  <meta name="GENERATOR" content="mkd2html 2.1.6 DEBUG DL=DISCOUNT">
+  <meta http-equiv="Content-Type"
+        content="text/html; charset-us-ascii">  <link rel="stylesheet"
+        type="text/css"
+        href="markdown.css" />
+</head>
+<body>
+<h1><strong>Android App Architecture</strong></h1>
+
+<p>The architecture of an Android app differs from desktop application architecture.
+App architecture is based upon <em>components</em> that communicate with each other by
+using <em>intents</em> that are described by a <em>manifest</em> and that are stored in an app
+package.</p>
+
+<h2>  <strong>Components</strong></h2>
+
+<ul>
+<li><em>activities</em></li>
+<li><em>services</em></li>
+<li><em>content providers</em></li>
+<li><em>broadcast receivers</em></li>
+</ul>
+
+
+<blockquote><p>An app is a collection of <em>components</em> that run in a Linux process and
+are managed by Android.</p></blockquote>
+
+<h4>These components share a set of resources, including:</h4>
+
+<ul>
+<li><em>databases</em></li>
+<li><em>preferences</em></li>
+<li><em>filesystem</em></li>
+<li><em>Linux process</em></li>
+</ul>
+
+
+<p>Component reuse reduces overall memory footprint, which is very important
+for devices with limited memory.</p>
+
+<h4><strong>When Needed</strong> Only</h4>
+
+<blockquote><p> Android starts a process when any part of the app is needed, such as the
+ reusable shared components, and instantiates the <code>Java objects</code> for that
+ part.
+ This is why Android&rsquo;s apps don&rsquo;t have a single entry point, e.g. C-style
+ <code>main()</code> function.</p></blockquote>
+
+<hr />
+
+<h2>  <strong><em>Activities</em></strong></h2>
+
+<p>An <em>activity</em> is a component that presents a user interface so that the user can
+interact with an app.</p>
+
+<h2>|   Application     |   Activity    |</h2>
+
+<p>|   Contacts        |   New Contact |
+|   Phone           |   Dial Number |
+|   Calculator      |   Calculate   |
+|   Calculator      |   Advanced panel |</p>
+</body>
+</html>
