@@ -7,10 +7,6 @@ if [ "$(id -u)" != $ROOT_UID ]; then
     exit 1
 fi
 
-echo "This is a modified shell-script from the one
-originally-published at github.com/apotheos/Android-Udev-Rules \n
-Warning! The customisation will attempt to create new group
-*plugdev* as root..."
 echo "Unplug all android devices, then hit ENTER."
 read IGNORE
 
