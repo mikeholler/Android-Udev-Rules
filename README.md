@@ -4,13 +4,9 @@ Android-Udev-Rules
 Develop with your Android devices on Linux.
 
 *************************************************
-This is a fork of the original repo hosted at http://github.com/apotheos/Android-Udev-Rules.  It extends the use of the original script, which is aimed at Ubuntu, to Fedora and, perhaps, other `systemd`-based Linux distributions.
+The `install.sh` script is written to facilitate the installation of the necessary `udev` rules in order to interface with android devices over the USB port.  It is intended to be run as `root #` so that the *51-android.rules* file can be copied to the system's configuration directory--e.g. `/etc/udev/rules.d/`
 
-The shell-script within the repo is intended to be run as *root #:* so that the *udev rules* file can be copied to the *udev system config* directory--i.e. **/etc/udev/rules.d/**
-
-The customizations I've made to the script are intended as a workaround for systems with **SystemD** installed.  I've commented out the line for *chkconfig*, as an attempt to restart `udev` was not properly handled on Fedora20 PCs.
-
-Aside from that, and perhaps more importantly, I've also included a line to the *shell-script* to add a new group **plugdev** to the system, since the *udev-rules* file refers to it as the assigned user group.
+In addition to the original script there's the `installOnFedora.sh` as a workaround for systems with **SystemD** installed.  I've commented out the line for *chkconfig*, as an attempt to restart `udev` was not properly handled on Fedora20 PCs.  Furthermore, this additional script also includes a line that adds a new group **plugdev** to the system; since the *udev-rules* file refers to the **plugdev** group as the assigned user group, the admin will need to add designated users to it before they can interact with the android devices using `adb`, etc.
 
 Please Note:
 ------------------
